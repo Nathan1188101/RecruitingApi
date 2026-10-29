@@ -48,9 +48,12 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
 
         // optional extras, good to know 
         modelBuilder.Entity<Occupation>()
-            .Property(o => o.EventTitle)
+            .Property(o => o.Title)
             .HasMaxLength(200);             // nvarchar(200) instead of nvarchar(max) which is default (wasteful) 
 
+        modelBuilder.Entity<RecruitingEvent>()
+            .Property(e => e.EventTitle)
+            .HasMaxLength(200); 
 
         modelBuilder.Entity<Registration>()
             .HasIndex(r => new {r.Email, r.RecruitingEventId}) // building composite index (pre-sroted list of combined columns for fast look ups)

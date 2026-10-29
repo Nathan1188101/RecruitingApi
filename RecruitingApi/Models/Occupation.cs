@@ -8,7 +8,7 @@
  *  attributes can be  added to fields as well
  *  
  *  SIDE NOTE: 
- *  - Seed data should use Models, not DTOs 
+ *  - Seed data should use Models, not DTOs cause the seed data is going in the db, so they should match defs basically
  */
 
 public class Occupation
