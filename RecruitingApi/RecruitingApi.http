@@ -1,6 +1,10 @@
 @RecruitingApi_HostAddress = http://localhost:5123
 
+// so this is like built in postman I believe? Can be good for testing api
+
 GET {{RecruitingApi_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+GET {{RecruitingApi_HostAddress}}/api/recruitingevents
+Accept: application/json

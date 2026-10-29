@@ -1,4 +1,4 @@
-namespace RecruitingApi
+namespace RecruitingApi.Models
 {
     public class WeatherForecast
     {

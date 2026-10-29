@@ -1,17 +1,27 @@
+using RecruitingApi.Services;
+using Scalar.AspNetCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+builder.Services.AddOpenApi(); // OpenAPI is industry-standard. It explicity outlines your available endpoints, required parameters, request/response models, and auth methods.
+
+builder.Services.AddScoped<IRecruitingEventService, RecruitingEventService>(); // one instance per HTTP request 
+
 
 var app = builder.Build();
 
+// everything after the DI container is the middleware pipeline
+// the steps every request must pas through in order. 
+
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment()) // checking if in dev environment 
 {
     app.MapOpenApi();
+    app.MapScalarApiReference(); // UI for testing
 }
 
 app.UseHttpsRedirection();

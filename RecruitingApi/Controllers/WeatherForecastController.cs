@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using RecruitingApi.Models;
 
 namespace RecruitingApi.Controllers
 {
