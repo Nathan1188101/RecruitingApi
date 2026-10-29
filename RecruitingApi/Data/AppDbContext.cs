@@ -22,9 +22,25 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
         configurationBuilder.Properties<DateTime>().HaveConversion<UtcDateTimeConverter>(); //
     }
 
+
+    // apparently this is optional. EF Core will still build your tables from your models 
+    // only use this for things the conventions can't work out, or changing what they decided
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        
+        // main reason we need it right now is for the seed data 
+
+        modelBuilder.Entity<Occupation>().HasData(SeedData.Occupations);
+        modelBuilder.Entity<RecruitingEvent>().HasData(SeedData.RecruitingEvents);
+        modelBuilder.Entity<Registration>().HasData(SeedData.Registrations);
+
+        // optional extras, good to know 
+        modelBuilder.Entity<Occupation>()
+            .Property(o => o.EventTitle)
+            .HasMaxLength(200);             // nvarchar(200) instead of nvarchar(max) which is default (wasteful) 
+
+        modelBuilder.Entity<Registration>()
+            .HasIndex(r => r.Email); 
+
     }
  
 }
