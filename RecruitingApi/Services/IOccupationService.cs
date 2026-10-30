@@ -6,6 +6,6 @@ public interface IOccupationService
 {
     Task<List<OccupationDto>> GetAllAsync(); 
     Task<OccupationDto?> GetByIdAsync(int id);
-    Task<List<OccupationDto?>> GetAllFullTime(); 
+    Task<List<OccupationDto?>> GetAllFullTimeAsync(); 
 
 }

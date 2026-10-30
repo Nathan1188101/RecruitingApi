@@ -12,3 +12,19 @@ Accept: application/json
 ###
 GET {{RecruitingApi_HostAddress}}/api/recruitingevents/1
 Accept: application/json
+
+###
+GET {{RecruitingApi_HostAddress}}/api/occupations
+Accept: application/json
+
+### 
+GET {{RecruitingApi_HostAddress}}/api/occupations/fulltime
+Accept: application/json
+
+### 
+GET {{RecruitingApi_HostAddress}}/api/occupations/5
+Accept: application/json
+
+### 
+GET {{RecruitingApi_HostAddress}}/api/occupations?fullTime=true // query string on the existing endpoint, doesn't actually do anything yet
+Accept: application/json

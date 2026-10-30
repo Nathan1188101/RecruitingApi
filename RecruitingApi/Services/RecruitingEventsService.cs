@@ -19,11 +19,13 @@ public class RecruitingEventService(AppDbContext db) : IRecruitingEventService
                             new RecruitingEventDto(e.Id, e.EventTitle, e.Location, e.Date, e.Capacity)).ToListAsync(); 
 
         // convert result qeury list into DTO list 
-        var list = new List<RecruitingEventDto>();
-        foreach (var e in events)
-        {
-            list.Add(new RecruitingEventDto(e.Id, e.EventTitle, e.Location, e.Date, e.Capacity));
-        }
+        //var list = new List<RecruitingEventDto>();
+        //foreach (var e in events)
+        //{
+        //    list.Add(new RecruitingEventDto(e.Id, e.EventTitle, e.Location, e.Date, e.Capacity));
+        //}
+
+        // remember ToListAsync always returns something (i.e an empty list if all else fails, so null checks are pointless) 
 
         return events; 
 
@@ -41,5 +43,4 @@ public class RecruitingEventService(AppDbContext db) : IRecruitingEventService
 
         return dto; 
     }
-
 }
