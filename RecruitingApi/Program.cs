@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using RecruitingApi.Data;
 using RecruitingApi.Services;
 using Scalar.AspNetCore;
 
@@ -9,8 +11,12 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi(); // OpenAPI is industry-standard. It explicity outlines your available endpoints, required parameters, request/response models, and auth methods.
 
-builder.Services.AddScoped<IRecruitingEventService, RecruitingEventService>(); // one instance per HTTP request 
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddScoped<IRecruitingEventService, RecruitingEventService>(); // one instance per HTTP request 
+builder.Services.AddScoped<IOccupationService, OccupationService>();
+builder.Services.AddScoped<IRegistrationService, RegistrationService>(); 
 
 var app = builder.Build();
 

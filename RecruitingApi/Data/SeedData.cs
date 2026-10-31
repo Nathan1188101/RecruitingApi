@@ -71,7 +71,7 @@ namespace RecruitingApi.Data
             new() {Id = 7, RecruitingEventId = 1, Name = "Link", Email = "link@hyrule.com", Phone = "742-723-8403" },
             new() {Id = 8, RecruitingEventId = 5, Name = "Bowser", Email = "bowser@koopa.ca", Phone = "234-840-9374" },
             new() {Id = 9, RecruitingEventId = 5, Name= "Wario", Email = "mario@mario&luigi.com", Phone = "748-838-2341" }, // duplicate email here (for testing) 
-            new() {Id = 10, RecruitingEventId = 27, Name = "Patrick Jane", Email = "jane@wedabest.com", Phone = "7057483937" }
+            new() {Id = 10, RecruitingEventId = 3, Name = "Patrick Jane", Email = "jane@wedabest.com", Phone = "7057483937" }
         ];
 
         public static RecruitingEvent[] RecruitingEvents = [

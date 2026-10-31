@@ -8,3 +8,31 @@ Accept: application/json
 ###
 GET {{RecruitingApi_HostAddress}}/api/recruitingevents
 Accept: application/json
+
+###
+GET {{RecruitingApi_HostAddress}}/api/recruitingevents/1
+Accept: application/json
+
+###
+GET {{RecruitingApi_HostAddress}}/api/occupations
+Accept: application/json
+
+### 
+GET {{RecruitingApi_HostAddress}}/api/occupations/fulltime
+Accept: application/json
+
+### 
+GET {{RecruitingApi_HostAddress}}/api/occupations/5
+Accept: application/json
+
+### 
+GET {{RecruitingApi_HostAddress}}/api/occupations?fullTime=false // query string on the existing endpoint
+Accept: application/json
+
+###
+GET {{RecruitingApi_HostAddress}}/api/registrations
+Accept: application/json
+
+###
+GET {{RecruitingApi_HostAddress}}/api/registrations/2
+Aceept: application/json
