@@ -37,16 +37,16 @@ public class RegistrationService(AppDbContext db) : IRegistrationService
         {
             Name = dto.Name,
             Email = dto.Email,
-            Phone = dto.Phone, 
+            Phone = dto.Phone,
             RecruitingEventId = dto.RecruitingEventId,
 
-        }
+        };
 
         db.Registrations.Add(registration);
 
         await db.SaveChangesAsync();          // the database assigns the Id here
 
-        return new OccupationDto(registration.Id, registration.Title, registration.Category, registration.IsFullTime); // we return this to check it? Does the controller use this?
+        return new RegistrationDto(registration.Id, registration.RecruitingEventId, registration.Name, registration.Email, registration.Phone); // return the created DTO so the client can see it 
     }
 
 }

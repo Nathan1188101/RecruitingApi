@@ -24,6 +24,12 @@ public class RegistrationsController(IRegistrationService registrations) : Contr
         return result is null ? NotFound() : Ok(result);
     }
 
-    
+    [HttpPost]
+    public async Task<ActionResult<RegistrationDto>> CreateRegistration(CreateRegistrationDto dto)
+    {
+        var created = await registrations.CreateAsync(dto);
+
+        return CreatedAtAction(nameof(GetById), new { id = created.Id }, created); // NEED TO GO OVER THIS 
+    }
 
 }
