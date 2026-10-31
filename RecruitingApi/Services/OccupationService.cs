@@ -7,9 +7,17 @@ namespace RecruitingApi.Services;
 
 public class OccupationService(AppDbContext db) : IOccupationService
 {
-    public async Task<List<OccupationDto>> GetAllAsync()
+    public async Task<List<OccupationDto>> GetAllAsync(bool? fullTime)
     {
-        var occupations = await db.Occupations.Select(o =>
+        // bare query to build on 
+        var query = db.Occupations.AsQueryable(); 
+
+        if (fullTime is not null)
+        {
+            query = query.Where(o => o.IsFullTime == fullTime); // only filtering if value provided 
+        }
+
+        var occupations = await query.Select(o =>
                             new OccupationDto(o.Id, o.Title, o.Category, o.IsFullTime)).ToListAsync();
 
 

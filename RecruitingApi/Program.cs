@@ -15,7 +15,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<IRecruitingEventService, RecruitingEventService>(); // one instance per HTTP request 
-builder.Services.AddScoped<IOccupationService, OccupationService>(); 
+builder.Services.AddScoped<IOccupationService, OccupationService>();
+builder.Services.AddScoped<IRegistrationService, RegistrationService>(); 
 
 var app = builder.Build();
 

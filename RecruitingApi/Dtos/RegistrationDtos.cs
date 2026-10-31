@@ -1,3 +1,3 @@
 ﻿namespace RecruitingApi.Dtos;
 
-public record RegistrationDto(int Id, int EventId, string Name, string Email, string? Phone); 
+public record RegistrationDto(int Id, int RecruitingEventId, string Name, string Email, string? Phone); 

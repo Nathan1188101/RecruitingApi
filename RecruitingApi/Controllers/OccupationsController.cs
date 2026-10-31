@@ -5,14 +5,14 @@ using RecruitingApi.Services;
 
 namespace RecruitingApi.Controllers;
 
-[Route("api/[controller]")] //'controller' gets filled by class name of the controller (minus 'controller')
+[Route("api/[controller]")] //'controller' gets filled by class name of the controller (minus 'controller')git 
 [ApiController]
 public class OccupationsController(IOccupationService occupations) : ControllerBase
 {
     [HttpGet]
-    public async Task<ActionResult<List<OccupationDto>>> GetAll()
+    public async Task<ActionResult<List<OccupationDto>>> GetAll([FromQuery] bool? fullTime) // model binding 
     {
-        var jobs = await occupations.GetAllAsync();
+        var jobs = await occupations.GetAllAsync(fullTime);
 
         return Ok(jobs); // will always return (even if no jobs, should still return an empty list which still is success) 
     }
